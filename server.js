@@ -2,11 +2,10 @@ var express = require('express');
 var app = express();
 var fs = require('fs');
 var bodyParser = require('body-parser');
-
 var stringifyFile;
 
 app.use(bodyParser.json());
-
+path = require("path");
 
 app.get('/getNote', function (req, res) {
 
@@ -18,9 +17,10 @@ app.get('/getNote', function (req, res) {
 });
 
 app.post('/updateNote/:note', function (req, res){
-	stringifyFile += req.params.note;
+	stringifyFile + req.params.note;
 	fs.writeFile('./test.json', stringifyFile, function(err) {
 	    If (err) throw err;
+	    res.send(req.params.note);
 	    console.log('file updated');
 	});
 
