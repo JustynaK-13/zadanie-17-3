@@ -17,12 +17,12 @@ app.get('/getNote', function (req, res) {
 });
 
 app.post('/updateNote/:note', function (req, res){
-	stringifyFile + req.params.note;
-	fs.writeFile('./test.json', stringifyFile, function(err) {
-	    If (err) throw err;
-	    res.send(req.params.note);
-	    console.log('file updated');
-	});
+	fs.writeFile('./example.json', stringifyFile, function (err) {
+		if (err) throw err;
+	        stringifyFile + req.params.note;
+	        res.send(stringifyFile);
+		    console.log('file updated');
+		});
 
 });
 
