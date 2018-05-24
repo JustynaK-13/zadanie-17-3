@@ -18,7 +18,7 @@ app.get('/getNote', function (req, res) {
 });
 
 app.post('/updateNote/:note', function (req, res){
-	stringifyFile + req.params.note;
+	stringifyFile += req.params.note;
 	fs.writeFile('./test.json', stringifyFile, function(err) {
 	    If (err) throw err;
 	    console.log('file updated');
@@ -26,4 +26,6 @@ app.post('/updateNote/:note', function (req, res){
 
 });
 
-app.listen(3000);
+app.listen(3000, 'localhost', function() {
+    console.log('Nasłuchuje na porcie 3000');
+});
