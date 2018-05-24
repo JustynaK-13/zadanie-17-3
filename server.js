@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var stringifyFile;
 
 app.use(bodyParser.json());
-path = require("path");
+
 
 app.get('/getNote', function (req, res) {
 
