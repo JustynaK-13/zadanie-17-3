@@ -17,13 +17,15 @@ app.get('/getNote', function (req, res) {
 });
 
 app.post('/updateNote/:note', function (req, res){
-	fs.writeFile('./example.json', stringifyFile, function (err) {
+	
+	fs.readFile('./test.json', 'utf8', function(err, data) {
 		if (err) throw err;
-	        stringifyFile + req.params.note;
+		stringifyFile += req.params.note;
+	});	
+	fs.writeFile('./example.json', stringifyFile, function (err) {     
 	        res.send(stringifyFile);
 		    console.log('file updated');
-		});
-
+	});
 });
 
 app.listen(3000, 'localhost', function() {
